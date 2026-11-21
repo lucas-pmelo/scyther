@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "envelope.schema.json",
+  "title": "Envelope",
+  "description": "Envelope comum a toda mensagem publicada na exchange scyther.events. O conteúdo específico de cada tipo fica em payload.",
+  "type": "object",
+  "required": ["messageId", "type", "version", "occurredAt", "correlationId", "attempt", "payload"],
+  "properties": {
+    "messageId": {
+      "description": "UUID único da mensagem. Chave de idempotência dos consumidores (ADR 0006). Igual à propriedade AMQP message_id.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "type": {
+      "description": "Routing key da mensagem. Igual à propriedade AMQP type.",
+      "type": "string",
+      "enum": [
+        "cmd.video.process",
+        "evt.video.processing-started",
+        "evt.video.completed",
+        "evt.video.failed"
+      ]
+    },
+    "version": {
+      "description": "Versão do contrato do payload. Muda só em alteração incompatível.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "occurredAt": {
+      "description": "Momento em que o fato aconteceu (UTC, RFC 3339), não o momento da publicação.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "correlationId": {
+      "description": "Sempre o videoId. Liga todas as mensagens de um mesmo vídeo.",
+      "type": "string",
+      "format": "uuid"
+    },
+    "attempt": {
+      "description": "Tentativa de processamento a que a mensagem se refere, começando em 1. O worker incrementa ao reenviar para as filas de retry.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

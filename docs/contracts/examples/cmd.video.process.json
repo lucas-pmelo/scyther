@@ -1,0 +1,17 @@
+{
+  "messageId": "c0a8012e-5f3b-4e2a-9d1c-6b7a8e9f0a1b",
+  "type": "cmd.video.process",
+  "version": 1,
+  "occurredAt": "2026-12-01T14:03:12.481Z",
+  "correlationId": "3f6c1e2a-8b4d-4c1f-9a7e-2d5b6c8e9f01",
+  "attempt": 1,
+  "payload": {
+    "videoId": "3f6c1e2a-8b4d-4c1f-9a7e-2d5b6c8e9f01",
+    "userId": "7a1b2c3d-4e5f-4a6b-8c7d-9e0f1a2b3c4d",
+    "userEmail": "lucas@example.com",
+    "sourceKey": "uploads/7a1b2c3d-4e5f-4a6b-8c7d-9e0f1a2b3c4d/3f6c1e2a-8b4d-4c1f-9a7e-2d5b6c8e9f01/source",
+    "fps": 1,
+    "frameFormat": "JPEG",
+    "originalFilename": "aula1.mp4"
+  }
+}

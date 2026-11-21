@@ -1,0 +1,16 @@
+{
+  "messageId": "4b5c6d7e-8f9a-4b0c-9d1e-2f3a4b5c6d7e",
+  "type": "evt.video.failed",
+  "version": 1,
+  "occurredAt": "2026-12-01T14:03:14.105Z",
+  "correlationId": "3f6c1e2a-8b4d-4c1f-9a7e-2d5b6c8e9f01",
+  "attempt": 1,
+  "payload": {
+    "videoId": "3f6c1e2a-8b4d-4c1f-9a7e-2d5b6c8e9f01",
+    "userId": "7a1b2c3d-4e5f-4a6b-8c7d-9e0f1a2b3c4d",
+    "userEmail": "lucas@example.com",
+    "originalFilename": "corrompido.mp4",
+    "errorCode": "INVALID_MEDIA",
+    "errorMessage": "O arquivo enviado não é um vídeo válido."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "messageId": "1d2e3f4a-5b6c-4d7e-8f9a-0b1c2d3e4f5a",
+  "type": "evt.video.processing-started",
+  "version": 1,
+  "occurredAt": "2026-12-01T14:03:13.020Z",
+  "correlationId": "3f6c1e2a-8b4d-4c1f-9a7e-2d5b6c8e9f01",
+  "attempt": 1,
+  "payload": { "videoId": "3f6c1e2a-8b4d-4c1f-9a7e-2d5b6c8e9f01", "userId": "7a1b2c3d-4e5f-4a6b-8c7d-9e0f1a2b3c4d" }
+}

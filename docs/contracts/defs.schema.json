@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "defs.schema.json",
+  "title": "Definições compartilhadas",
+  "$defs": {
+    "videoId": { "type": "string", "format": "uuid" },
+    "userId": { "type": "string", "format": "uuid" },
+    "userEmail": {
+      "description": "Snapshot do e-mail no momento do pedido, para o notifier não precisar consultar a API (ADR 0002).",
+      "type": "string",
+      "format": "email"
+    },
+    "originalFilename": {
+      "description": "Nome do arquivo como o usuário enviou. Só para exibição, nunca usado como caminho.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "fps": {
+      "description": "Frames extraídos por segundo de vídeo.",
+      "type": "number",
+      "minimum": 0.1,
+      "maximum": 5
+    },
+    "frameFormat": { "type": "string", "enum": ["PNG", "JPEG"] },
+    "sourceKey": {
+      "type": "string",
+      "pattern": "^uploads/[0-9a-f-]{36}/[0-9a-f-]{36}/source$"
+    },
+    "zipKey": {
+      "type": "string",
+      "pattern": "^outputs/[0-9a-f-]{36}/[0-9a-f-]{36}/frames\\.zip$"
+    },
+    "thumbnailKey": {
+      "type": "string",
+      "pattern": "^outputs/[0-9a-f-]{36}/[0-9a-f-]{36}/thumb\\.jpg$"
+    },
+    "errorCode": {
+      "description": "Ver a tabela de códigos de erro no README dos contratos.",
+      "type": "string",
+      "enum": ["INVALID_MEDIA", "TOO_LONG", "TOO_LARGE", "FFMPEG_ERROR", "STORAGE_ERROR"]
+    }
+  }
+}

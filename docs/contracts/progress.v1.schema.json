@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "progress.v1.schema.json",
+  "title": "Progresso v1 (Redis)",
+  "description": "Progresso de processamento publicado pelo worker no Redis, fora do RabbitMQ (ADR 0008). Vai no canal pub/sub video:{videoId}:progress e, com o mesmo conteúdo, na chave video:{videoId}:progress (último valor, com TTL). Sem envelope: é efêmero e não tem idempotência.",
+  "type": "object",
+  "required": ["version", "videoId", "percent", "updatedAt"],
+  "properties": {
+    "version": { "const": 1 },
+    "videoId": { "$ref": "defs.schema.json#/$defs/videoId" },
+    "percent": {
+      "description": "out_time do ffmpeg dividido pela duração do ffprobe, arredondado para baixo. 100 só depois do upload do zip.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}
