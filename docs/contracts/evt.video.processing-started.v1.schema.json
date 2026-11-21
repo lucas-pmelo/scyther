@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evt.video.processing-started.v1.schema.json",
+  "title": "evt.video.processing-started v1",
+  "description": "O worker começou a processar o vídeo (a cada tentativa). Consumido pela scyther-api, que move o vídeo de QUEUED para PROCESSING.",
+  "allOf": [{ "$ref": "envelope.schema.json" }],
+  "properties": {
+    "type": { "const": "evt.video.processing-started" },
+    "version": { "const": 1 },
+    "payload": {
+      "type": "object",
+      "required": ["videoId", "userId"],
+      "properties": {
+        "videoId": { "$ref": "defs.schema.json#/$defs/videoId" },
+        "userId": { "$ref": "defs.schema.json#/$defs/userId" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -3,6 +3,8 @@
 Diagramas do design em [`../superpowers/specs/2026-11-18-scyther-hackathon-design.md`](../superpowers/specs/2026-11-18-scyther-hackathon-design.md).
 A fonte é o Mermaid deste arquivo (o GitHub renderiza direto); as versões em PNG ficam em [`img/`](img/).
 
+A visão em níveis (contexto, contêineres e componentes do worker) está nos [diagramas C4](c4.md).
+
 > Nomes de classes, interfaces e métodos são a **proposta inicial** para orientar a implementação.
 > Rotas, filas, estados e tabelas seguem o spec.
 

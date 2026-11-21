@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evt.video.failed.v1.schema.json",
+  "title": "evt.video.failed v1",
+  "description": "Falha definitiva: erro não recuperável ou última tentativa esgotada (ADR 0005). Consumido pela scyther-api (status FAILED) e pelo scyther-notifier (e-mail de falha).",
+  "allOf": [{ "$ref": "envelope.schema.json" }],
+  "properties": {
+    "type": { "const": "evt.video.failed" },
+    "version": { "const": 1 },
+    "payload": {
+      "type": "object",
+      "required": ["videoId", "userId", "userEmail", "originalFilename", "errorCode", "errorMessage"],
+      "properties": {
+        "videoId": { "$ref": "defs.schema.json#/$defs/videoId" },
+        "userId": { "$ref": "defs.schema.json#/$defs/userId" },
+        "userEmail": { "$ref": "defs.schema.json#/$defs/userEmail" },
+        "originalFilename": { "$ref": "defs.schema.json#/$defs/originalFilename" },
+        "errorCode": { "$ref": "defs.schema.json#/$defs/errorCode" },
+        "errorMessage": {
+          "description": "Mensagem amigável, em português, que pode ser mostrada ao usuário e ir no e-mail. Sem stack trace nem saída crua do ffmpeg.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

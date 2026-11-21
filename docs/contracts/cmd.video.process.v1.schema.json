@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cmd.video.process.v1.schema.json",
+  "title": "cmd.video.process v1",
+  "description": "Pedido de processamento de um vídeo. Publicado pela scyther-api (outbox relay) e consumido pelo scyther-worker na fila scyther-worker.process.",
+  "allOf": [{ "$ref": "envelope.schema.json" }],
+  "properties": {
+    "type": { "const": "cmd.video.process" },
+    "version": { "const": 1 },
+    "payload": {
+      "type": "object",
+      "required": ["videoId", "userId", "userEmail", "sourceKey", "fps", "frameFormat", "originalFilename"],
+      "properties": {
+        "videoId": { "$ref": "defs.schema.json#/$defs/videoId" },
+        "userId": { "$ref": "defs.schema.json#/$defs/userId" },
+        "userEmail": { "$ref": "defs.schema.json#/$defs/userEmail" },
+        "sourceKey": { "$ref": "defs.schema.json#/$defs/sourceKey" },
+        "fps": { "$ref": "defs.schema.json#/$defs/fps" },
+        "frameFormat": { "$ref": "defs.schema.json#/$defs/frameFormat" },
+        "originalFilename": { "$ref": "defs.schema.json#/$defs/originalFilename" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
